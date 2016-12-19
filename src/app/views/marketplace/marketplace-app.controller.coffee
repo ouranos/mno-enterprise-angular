@@ -44,7 +44,7 @@ angular.module 'mnoEnterpriseAngular'
       # Update the comments and avergae review
       vm.updateReview = (response) ->
         # Select and push to comments the last comment added
-        [first, ..., newReview] = response.app.reviews
+        [ ..., newReview] = response.app.reviews
         vm.app.reviews.push(newReview)
         vm.averageRating = parseFloat(response.app.average_rating).toFixed(1)
         vm.isRateDisplayed = true
