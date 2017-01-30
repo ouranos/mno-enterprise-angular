@@ -1,10 +1,8 @@
 angular.module 'mnoEnterpriseAngular'
-.controller('DeleteCommentModalCtrl', ($log, $stateParams, $uibModalInstance, toastr, Utilities, MnoeMarketplace, MnoeOrganizations, comment) ->
+.controller('DeleteCommentModalCtrl', ($log, $stateParams, $uibModalInstance, toastr, Utilities, MnoeMarketplace, comment) ->
   vm = this
 
   vm.modal = {model: {}}
-
-  vm.app = {}
 
   vm.modal.cancel = ->
     $uibModalInstance.dismiss('cancel')
@@ -14,7 +12,7 @@ angular.module 'mnoEnterpriseAngular'
 
     MnoeMarketplace.deleteComment($stateParams.appId, comment.id).then(
       (response) ->
-        toastr.success('mno_enterprise.templates.dashboard.marketplace.show.success_toastr')
+        toastr.success('mno_enterprise.templates.dashboard.marketplace.show.success_toastr_2')
         $uibModalInstance.close(response)
       (errors) ->
         $log.error(errors)

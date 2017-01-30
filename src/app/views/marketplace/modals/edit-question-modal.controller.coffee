@@ -1,11 +1,10 @@
 angular.module 'mnoEnterpriseAngular'
-.controller('EditQuestionModalCtrl', ($log, $stateParams, $uibModalInstance, toastr, Utilities, MnoeMarketplace, MnoeOrganizations, question) ->
+.controller('EditQuestionModalCtrl', ($log, $stateParams, $uibModalInstance, toastr, Utilities, MnoeMarketplace, question) ->
   vm = this
 
   vm.modal = {model: {}}
   vm.appRating = question.rating
 
-  vm.app = {}
   vm.commentMaxLenght = 500
 
   vm.modal.model.description = question.description
@@ -21,7 +20,7 @@ angular.module 'mnoEnterpriseAngular'
 
     MnoeMarketplace.editQuestion($stateParams.appId, question.id, app_question).then(
       (response) ->
-        toastr.success('mno_enterprise.templates.dashboard.marketplace.show.success_toastr')
+        toastr.success('mno_enterprise.templates.dashboard.marketplace.show.success_toastr_2')
         $uibModalInstance.close(response)
       (errors) ->
         $log.error(errors)
